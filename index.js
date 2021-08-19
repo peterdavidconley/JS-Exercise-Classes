@@ -74,7 +74,22 @@ class Person {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-class Car {
+class Car { 
+  constructor(model, milesPerGallon) {
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+  }
+  fill(gallons){
+    this.tank += gallons
+  }
+  drive(distance) {
+    if (this.tank > 0) {
+    this.odometer += distance
+    this.tank -= (distance/this.milesPerGallon)
+    } else { return `I ran out of fuel at ${this.odometer} miles!`}
+  }
   
 }
 
@@ -91,7 +106,14 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-  
+  constructor(object) {
+    this.name = object.name;
+    this.age = object.age;
+    this.location = object.location;
+  }
+  speak() {
+    return `Hello my name is ${this.name}, I am from ${this.location}`
+  }
 }
 
 /*
